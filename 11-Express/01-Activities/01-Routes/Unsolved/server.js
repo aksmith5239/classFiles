@@ -11,21 +11,33 @@ const yoda = {
   name: 'Yoda',
   role: 'Jedi Master',
   age: 900,
-  forcePoints: 2000
+  midichlorians: 2000
 };
 
 const darthmaul = {
   name: 'Darth Maul',
   role: 'Sith Lord',
   age: 200,
-  forcePoints: 1200
+  midichlorians: 1200
 };
 
 // Create a data object for the character, Obi Wan Kenobi
 // Enter any values you like for the properties following the same format as the Yoda and Darth Maul character above
 //
 // YOUR CODE HERE
-//
+const obiwankenobi = {
+  name: 'Obi Wan Kenobi',
+  role: 'Jedi Master',
+  age: 100,
+  midichlorians: 1500
+};
+
+const lukeSkywalker  = {
+  name: 'Luke Skywalker',
+  role: 'Jedi Knight',
+  age: 55,
+  midichlorians: 1700
+};
 
 // Routes
 // ===========================================================
@@ -38,13 +50,20 @@ app.get('/yoda', (req, res) => {
 });
 
 app.get('/darthmaul', (req, res) => {
-  res.json(darthmaul);
+  res.send(darthmaul);
 });
+
+app.get('/lukeSkywalker', (req, res) => {
+  res.json(lukeSkywalker);
+});
+
 
 // Create a new Express route that leads users to the new Obi Wan Kenobi data
 // Follow the same format as the Yoda and Darth Maul routes
 //
-// YOUR CODE HERE
+app.get('/obiwankenobi', (req, res) => {
+  res.json(obiwankenobi);
+});
 //
 
 // Listener
