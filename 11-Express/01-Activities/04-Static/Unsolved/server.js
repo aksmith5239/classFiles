@@ -2,7 +2,9 @@
 // =============================================================
 const express = require('express');
 // Import the 'path' module HERE
-//
+const path = require('path');
+
+
 
 const app = express();
 const PORT = 3001;
@@ -41,11 +43,10 @@ const characters = [
 // =============================================================
 
 // Update the home route to return `index.html`
-app.get('/', (req, res) => {
-  //
-  // YOUR CODE HERE
-  //
+app.get('/', (req, res) => { 
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
+
 
 app.get('/api/characters', (req, res) => {
   return res.json(characters);
