@@ -44,9 +44,10 @@ app.get('/', (req, res) => {
 });
 
 // Create an `/add` route that returns `add.html`
-//
-// YOUR CODE HERE
-//
+app.get('/add', (req, res) => {
+  res.sendFile(path.join(__dirname, 'add.html'));
+});
+
 
 app.get('/api/characters', (req, res) => {
   return res.json(characters);
@@ -70,13 +71,15 @@ app.post('/api/characters', (req, res) => {
   const newCharacter = req.body;
 
   // BONUS: Use a RegEx Pattern to remove spaces from newCharacter
-  // Your code here
-
-  console.log(newCharacter);
+  newCharacter.routeName = newCharacter.name.replace(/\s+/g, "").toLowerCase();
+ 
+  
+ console.log(newCharacter);
 
   characters.push(newCharacter);
 
   res.json(newCharacter);
+  alert("Success! You created" + newCharacter.name);
 });
 
 // Listener
